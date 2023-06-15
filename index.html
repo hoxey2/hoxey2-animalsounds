@@ -28,7 +28,7 @@
     <script>
         function getSound() {
             const name = document.getElementById('name').value
-            fetch(`http://localhost:3000/sound/${name}`)
+            fetch(`https://port-0-hoxey2-animalsounds-koh2xliwq66n8.sel4.cloudtype.app/sound/${name}`)
             .then((response) => response.json())
             .then((data) => {
                 document.getElementById('img').setAttribute('src', '')
