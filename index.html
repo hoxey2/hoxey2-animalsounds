@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동물 울음소리 API</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .input{
+            padding-top: 10%;
+        }
+        .input img{
+            margin: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="input">
+        <img src="https://i.ibb.co/QYQyXnX/animal-Sounds.png" alt="logo">
+        <input id="name" type="text">
+        <button onclick="getSound()">API 요청</button>
+    </div>
+    <h1 id="sound"></h1>
+    <img id='img' src="">
+    <script>
+        function getSound() {
+            const name = document.getElementById('name').value
+            fetch(`http://localhost:3000/sound/${name}`)
+            .then((response) => response.json())
+            .then((data) => {
+                document.getElementById('img').setAttribute('src', '')
+                console.log(data)
+                document.getElementById('sound').innerHTML = data.sound
+                document.getElementById('img').setAttribute('src', data.imgSrc)
+            });
+        }
+    </script>
+</body>
+</html>
